@@ -17,6 +17,9 @@
  *
  */
 
+// @ts-check
+/// <reference path="../wireapp.d.ts" />
+
 'use strict';
 
 window.z = window.z || {};
@@ -27,7 +30,7 @@ z.assets.AssetCrypto = (() => {
    * @param {ArrayBuffer} cipherText - Encrypted plaintext
    * @param {ArrayBuffer} keyBytes - AES key used for encryption
    * @param {ArrayBuffer} referenceSha256 - SHA-256 checksum of the cipherText
-   * @returns {Promise} Resolves with the decrypted asset
+   * @returns {PromiseLike<ArrayBuffer>} Resolves with the decrypted asset
    */
   const _decryptAesAsset = (cipherText, keyBytes, referenceSha256) => {
     return window.crypto.subtle
@@ -48,7 +51,7 @@ z.assets.AssetCrypto = (() => {
 
   /**
    * @param {ArrayBuffer} plaintext - Plaintext asset to be encrypted
-   * @returns {Promise} Resolves with the encrypted asset
+   * @returns {PromiseLike<{cipherText: ArrayBuffer, keyBytes: ArrayBuffer, sha256: ArrayBuffer}>} Resolves with the encrypted asset
    */
   const _encryptAesAsset = plaintext => {
     const iv = _generateRandomBytes(16);

@@ -17,6 +17,9 @@
  *
  */
 
+// @ts-check
+/// <reference path="../wireapp.d.ts" />
+
 'use strict';
 
 window.z = window.z || {};
@@ -193,16 +196,16 @@ z.util.getContentTypeFromDataUrl = data_url => {
 z.util.stripDataUri = string => string.replace(/^data:.*,/, '');
 
 /**
- * Convert base64 string to UInt8Array.
+ * Convert base64 string to Uint8Array.
  * @note Function will remove "data-uri" attribute if present.
  * @param {string} base64 - base64 encoded string
- * @returns {UInt8Array} Typed array
+ * @returns {Uint8Array} Typed array
  */
 z.util.base64ToArray = base64 => bazinga64.Decoder.fromBase64(z.util.stripDataUri(base64)).asBytes;
 
 /**
- * Convert ArrayBuffer or UInt8Array to base64 string
- * @param {ArrayBuffer|UInt8Array} array - raw binary data or bytes
+ * Convert ArrayBuffer or Uint8Array to base64 string
+ * @param {ArrayBuffer|Uint8Array} array - raw binary data or bytes
  * @returns {string} Base64-encoded string
  */
 z.util.arrayToBase64 = array => bazinga64.Encoder.toBase64(new Uint8Array(array)).asString;

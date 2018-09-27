@@ -17,6 +17,9 @@
  *
  */
 
+// @ts-check
+/// <reference path="wireapp.d.ts" />
+
 'use strict';
 
 window.z = window.z || {};

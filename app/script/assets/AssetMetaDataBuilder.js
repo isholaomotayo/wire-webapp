@@ -17,6 +17,9 @@
  *
  */
 
+// @ts-check
+/// <reference path="../wireapp.d.ts" />
+
 'use strict';
 
 window.z = window.z || {};
@@ -27,7 +30,7 @@ z.assets.AssetMetaDataBuilder = (() => {
   /**
    * Constructs corresponding asset metadata depending on the given file type
    * @param {File|Blob} file - the file to generate metadata for
-   * @returns {Promise} Resolves with ImageMetaData, VideoMetaData or AudioMetaData
+   * @returns {Promise<void>} Resolves with ImageMetaData, VideoMetaData or AudioMetaData
    */
   const _buildMetadata = file => {
     if (!(file instanceof Blob)) {
