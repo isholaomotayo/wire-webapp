@@ -2,7 +2,7 @@
 <div id="conversation-input-bar"
      class="conversation-input-bar"
      data-bind="with: $root.inputBar,
-                css: {'conversation-input-bar-editing': $root.inputBar.isEditing()}">
+                css: {'conversation-input-bar-editing': $root.inputBar.isEditing(), 'conversation-input-bar-replying': $root.inputBar.isReplying()}">
 
   <!-- ko if: conversationEntity() && !conversationEntity().connection().isOutgoingRequest() -->
     <div class="controls-left">
